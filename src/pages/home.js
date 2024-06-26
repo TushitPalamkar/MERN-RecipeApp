@@ -40,9 +40,9 @@ export const Home = () => {
             
             <div>
               <h2>{recipes.name}</h2>
-              <button className='save-recipe' onClick={()=>saveRecipe(recipes._id)} disabled={issavedRecipe(recipes._id)}>
+              <button className='save-recipe' onClick={()=>saveRecipe(recipes._id)}>Save</button>
                 // {issavedRecipe(recipes._id)?"Saved":"Save Recipe!"} 
-                Save</button>
+                
             </div>
             <div className='instructions'>
               <p><b>Instructions: {recipes.instructions}</b></p>
