@@ -9,7 +9,7 @@ export const Home = () => {
   useEffect(()=>{
     const fetchRecipe=async()=>{
       try{
-        const response=await axios.get("http://localhost:3001/recipes")
+        const response=await axios.get("https://recipeapp-backend-rkvm.onrender.com/recipes")
         setRecipe(response.data)
         console.log(response.data)
       }
@@ -19,14 +19,14 @@ export const Home = () => {
       }
     }
     const fetchsavedRecipe=async()=>{
-      const response =await axios.get(`http://localhost:3001/recipes/savedRecipes/ids/${userID}`)
+      const response =await axios.get(`https://recipeapp-backend-rkvm.onrender.com/recipes/savedRecipes/ids/${userID}`)
       setsavedRecipe(response.data.savedRecipes)
     }
     fetchRecipe();
     fetchsavedRecipe();
   },[])
   const saveRecipe=async(recipeID)=>{
-    await axios.put("http://localhost:3001/recipes",{recipeID,userID})
+    await axios.put("https://recipeapp-backend-rkvm.onrender.com/recipes",{recipeID,userID})
   }
   const issavedRecipe=(id)=>{
     return savedRecipe.includes(id);
