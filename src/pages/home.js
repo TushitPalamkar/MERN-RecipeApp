@@ -37,7 +37,7 @@ export const Home = () => {
       <ul>
         {recipe.map((recipes)=>(
           <li key={recipes._id}>
-            {savedRecipe.includes(recipes._id)&& <h1>Already Saved!</h1>}
+            
             <div>
               <h2>{recipes.name}</h2>
               <button className='save-recipe' onClick={()=>saveRecipe(recipes._id)} disabled={issavedRecipe(recipes._id)}>
