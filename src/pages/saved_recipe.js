@@ -11,7 +11,7 @@ export const Saved_recipe = () => {
     const fetchsavedRecipe=async()=>{
       try{
 
-        const response =await axios.get(`http://localhost:3001/recipes/savedRecipes/${userID}`)
+        const response =await axios.get(`https://recipeapp-backend-rkvm.onrender.com/recipes/savedRecipes/${userID}`)
         setsavedRecipe(response.data.savedRecipes)
       }
       catch(error)
