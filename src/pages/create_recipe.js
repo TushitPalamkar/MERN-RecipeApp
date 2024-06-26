@@ -1,98 +1,3 @@
-// import React, { useState } from 'react';
-// import axios from 'axios';
-// import { useGetUserID } from '../hooks/useGetUserID';
-
-// export const Create_recipe = () => {
-//   const userID = useGetUserID();
-//   const [recipe, setRecipe] = useState({
-//     name: "",
-//     ingredients: [],
-//     instructions: "",
-//     imageURL: "",
-//     cookingTime: 0,
-//     userOwner: userID,
-//   });
-
-//   const handleChange = (event) => {
-//     const { name, value } = event.target;
-//     setRecipe({ ...recipe, [name]: value });
-//   };
-
-//   const handleInstructionChange = (event) => {
-//     setRecipe({ ...recipe, instructions: event.target.value });
-//   };
-
-//   const addIngredient = () => {
-//     setRecipe({ ...recipe, ingredients: [...recipe.ingredients, ""] });
-//   };
-
-//   const handleIngredientChange = (event, index) => {
-//     const { value } = event.target;
-//     const ingredients = [...recipe.ingredients];
-//     ingredients[index] = value;
-//     setRecipe({ ...recipe, ingredients });
-//   };
-
-//   const handleImageUrlChange = (event) => {
-//     setRecipe({ ...recipe, imageUrl: event.target.value });
-//   };
-
-//   const handleCookingTimeChange = (event) => {
-//     setRecipe({ ...recipe, cookingTime: Number(event.target.value) });
-//   };
-
-//   const handleSubmit = async (event) => {
-//     event.preventDefault();
-    
-//     try {
-//       await axios.post("http://localhost:3001/recipes",recipe,{
-//         headers:{
-//         'Content-type':'application/json'
-//         }
-//       })
-//       alert('Recipe Created');
-      
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-
-//   console.log(recipe);
-
-//   return (
-//     <div className='create-recipe'>
-//       <h2>Create Recipe</h2>
-//       <form onSubmit={handleSubmit}>
-//         <label htmlFor='name'>Name:</label>
-//         <input type='text' id='name' name='name' onChange={handleChange} />
-
-//         <label htmlFor='ingredients'>Ingredients:</label>
-//         {recipe.ingredients.map((item, index) => (
-//           <input
-//             type='text'
-//             id='ingredients'
-//             key={index}
-//             value={item}
-//             onChange={(event) => handleIngredientChange(event, index)}
-//           />
-//         ))}
-//         <button type='button' onClick={addIngredient}>Add Ingredients</button>
-
-//         <label htmlFor='instructions'>Instructions</label>
-//         <textarea id='instructions' name='instructions' onChange={handleInstructionChange}></textarea>
-
-//         <label htmlFor='imageURL'>Image URL</label>
-//         <input type='text' id='imageURL' name='imageURL' onChange={handleImageUrlChange} />
-
-//         <label htmlFor='cookingTime'>Cooking Time (minutes)</label>
-//         <input type='number' id='cookingTime' name='cookingTime' onChange={handleCookingTimeChange} />
-
-//         <button type='submit'>Create Recipe</button>
-//       </form>
-//     </div>
-//   );
-// };
-
 
 import React from 'react';
 import { useState } from "react";
@@ -136,7 +41,7 @@ export const Create_recipe = () => {
     event.preventDefault();
     try {
       await axios.post(
-        "http://localhost:3001/recipes",
+        "https://recipeapp-backend-rkvm.onrender.com/recipes",
         { ...recipe },
         {
           headers: { authorization: cookies.access_token },
