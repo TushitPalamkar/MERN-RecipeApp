@@ -28,9 +28,7 @@ export const Home = () => {
   const saveRecipe=async(recipeID)=>{
     await axios.put("https://recipeapp-backend-rkvm.onrender.com/recipes",{recipeID,userID})
   }
-  // const issavedRecipe=(id)=>{
-  //   return savedRecipe.includes(id);
-  // };
+
   return (
     <div className='recipe-text'>
       <h2>Recipes</h2>
@@ -41,7 +39,7 @@ export const Home = () => {
             <div>
               <h2>{recipes.name}</h2>
               <button className='save-recipe' onClick={()=>saveRecipe(recipes._id)}>Save</button>
-                // {issavedRecipe(recipes._id)?"Saved":"Save Recipe!"} 
+              
                 
             </div>
             <div className='instructions'>
